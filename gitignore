@@ -1,0 +1,18 @@
+#Virtual Environment
+venv/
+
+# Flask
+instance/*
+!instance/.gitignore
+.webassets-cache
+
+# Flask.Python Stack
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+dbhost = 'bais-mysql.mysql.database.azure.com'
+dbuser = 'msci3300_app@bais-mysql'
+dbpass = 'ali(Ewq38tq246acXF@#$(7aer'
+dbname = 'msci3300'
