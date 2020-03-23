@@ -26,6 +26,13 @@
           <td> {{ row.last_name }} </td>
           <td> {{ row.country }} </td>
           <td> {{ row.language_used}} </td>
+
+          <td>
+            <form action="{{ url_for('delete_winner',winner_id=row.id)}}" method='POST'>
+              <input type='submit' value='Delete' />
+            </form>
+          </td>
+          
         </tr>
         {% endfor %}
       </tbody>

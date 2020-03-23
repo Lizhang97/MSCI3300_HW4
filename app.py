@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template, redirect
+from flask import render_template, redirect, request
 from flask_wtf import FlaskForm
 from wtforms import StringField
 from wtforms.validators import DataRequired
@@ -49,6 +49,17 @@ def add_winner():
         return redirect('/')
 
     return render_template('add_winner.html', form=form, pageTitle='Add A New Winner')
+
+@app.route('/delete_winner/<int:winner_id>', methods=['GET','POST'])
+def delete_winner(winner_id):
+    if request.method=='POST':
+        winner=xzhang270_nobelprizeinliterature.query.get_or_404(winner_id)
+        db.session.delete(winner)
+        db.session.commit()
+        return redirect('/')
+    else:
+        return redirect('/')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
