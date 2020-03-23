@@ -3,9 +3,31 @@
 {% extends 'base.html' %}
 
 {% block body %}
+{% if winners %}
+    <table>
+      <thead>
+        <tr>
+          <th> ID </th>
+          <th> Year </th>
+          <th> First Name </th>
+          <th> Last Name </th>
+          <th> Country </th>
+          <th> Language </th>
+        </tr>
+      </thead>
 
-	<h2> This is my Flask server! </h2>
-
-	<img src="{{ url_for('static', filename='images/flask.jpg') }}" />
-
+      <tbody>
+        {% for row in winners %}
+        <tr>
+          <td> {{ row.id }} </td>
+          <td> {{ row.issued_year }} </td>
+          <td> {{ row.first_name }} </td>
+          <td> {{ row.last_name }} </td>
+          <td> {{ row.country }} </td>
+          <td> {{ row.language_used}} </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% endif %}
 {% endblock %}
