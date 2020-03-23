@@ -3,6 +3,7 @@
 {% extends 'base.html' %}
 
 {% block body %}
+<p><a href="{{ url_for('.add_winner')}}"> Add Another Winner </a>
 {% if winners %}
     <table>
       <thead>

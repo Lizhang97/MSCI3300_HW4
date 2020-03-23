@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template
+from flask import render_template, redirect
 from flask_wtf import FlaskForm
 from wtforms import StringField
 from wtforms.validators import DataRequired
@@ -46,7 +46,7 @@ def add_winner():
         winner=xzhang270_nobelprizeinliterature(issued_year=form.issued_year.data, first_name=form.first_name.data, last_name=form.last_name.data, country=form.country.data, language_used=form.language_used.data)
         db.session.add(winner)
         db.session.commit()
-        return '<h2> The winner of {0} Nobel Prize in Literature is {1} {2} from {3} and the language used is {4}.'.format(form.issued_year.data, form.first_name.data, form.last_name.data, form.country.data, form.language_used.data)
+        return redirect('/')
 
     return render_template('add_winner.html', form=form, pageTitle='Add A New Winner')
 
