@@ -15,7 +15,7 @@ dbhost=os.environ.get('DBHOST')
 dbname=os.environ.get('DBNAME')
 
 #conn = "mysql+pymysql://{0}:{1}@{2}/{3}".format(secrets.dbuser, secrets.dbpass, secrets.dbhost, secrets.dbname)
-conn="mysql+pymysql://{0}:{1}@{2}/{3}"".format(dbuser,dbpass,dbhost,dbname)
+conn="mysql+pymysql://{0}:{1}@{2}/{3}".format(dbuser,dbpass,dbhost,dbname)
 
 app = Flask(__name__)
 app.config['SECRET_KEY']='SuperSecretKey'
