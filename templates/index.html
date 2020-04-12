@@ -3,12 +3,19 @@
 {% extends 'base.html' %}
 
 {% block body %}
-<p><a href="{{ url_for('.add_winner')}}"> Add Another Winner </a>
+
+<form method='POST'>
+  <input type='text' autofocus='autofocus' name='search_string'>
+  <input type='submit' formaction='/search' value='Search'>
+</form>
+
+<p><a href="{{ url_for('.add_winner')}}"> Add Another Winner </a></p>
+
+   <h3> {{legend}} </h3>
 {% if winners %}
     <table>
       <thead>
         <tr>
-          <th> ID </th>
           <th> Year </th>
           <th> First Name </th>
           <th> Last Name </th>
@@ -20,7 +27,6 @@
       <tbody>
         {% for row in winners %}
         <tr>
-          <td> {{ row.id }} </td>
           <td> {{ row.issued_year }} </td>
           <td> {{ row.first_name }} </td>
           <td> {{ row.last_name }} </td>
@@ -28,11 +34,11 @@
           <td> {{ row.language_used}} </td>
 
           <td>
-            <form action="{{ url_for('delete_winner',winner_id=row.id)}}" method='POST'>
-              <input type='submit' value='Delete' />
+            <form action="{{ url_for('get_winner',winner_id=row.id)}}" method='POST'>
+              <input type='submit' value='Details' />
             </form>
           </td>
-          
+
         </tr>
         {% endfor %}
       </tbody>
